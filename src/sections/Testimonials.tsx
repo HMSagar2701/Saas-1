@@ -21,7 +21,7 @@ const testimonials = [
     username: "@jamietechguru00",
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
+    text: "Our team's productivity has skyrocketed since we started using this tool.",
     imageSrc: avatar2.src,
     name: "Josh Smith",
     username: "@jjsmith",
@@ -92,10 +92,10 @@ const TestimonialsColumn = (props: {
       }}
       className="flex flex-col gap-6 pb-6"
     >
-      {[...new Array(2)].fill(0).map((_, index) => (
-        <React.Fragment key={index}>
-          {props.testimonials.map(({ text, imageSrc, name, username }) => (
-            <div className="card">
+      {[...new Array(2)].fill(0).map((_, arrayIndex) => (
+        <React.Fragment key={arrayIndex}>
+          {props.testimonials.map(({ text, imageSrc, name, username }, index) => (
+            <div className="card" key={`${arrayIndex}-${index}`}>
               <div>{text}</div>
               <div className="flex items-center gap-2 mt-5">
                 <Image
